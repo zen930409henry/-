@@ -1,1 +1,1 @@
-fixed顯示小數點，setprecision設定小數點到第幾位
+fixed顯示小數點，setprecision設定小數點到第幾位。
