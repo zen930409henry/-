@@ -1,18 +1,20 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
 int main()
 {
-    int start_h, start_m, end_h, end_m, t, rate = 30, total = 0;
-    cin >> start_h >> start_m;
-    cin >> end_h >> end_m;
-    t = (end_h - start_h - 1) * 2 + (60 - start_m + end_m) / 30;
-    for (int i = 1; i <= t; i++)
-    {
-        if (i > 8) rate = 60;
-        else if (i > 4) rate = 40;
-        total += rate;
-    }
-    cout << total;
+    int hour, minute, hour1, minute1, totalmin = 0, money = 0;
+
+    cin >> hour >> minute;    //輸入起始時間
+    cin >> hour1 >> minute1;  //輸入結束時間
+
+    totalmin = (hour1 - hour) * 60 + (minute1 - minute);  //計算共停了多少時間
+    if (totalmin <= 120)        //11~16行，計算停車費
+        money = totalmin / 30 * 30;
+    else if (totalmin <= 240)
+        money = 120 + (totalmin - 120) / 30 * 40;
+    else
+        money = 120 + 160 + (totalmin - 240) / 30 * 60;
+    cout << money << endl;  //顯示停車費金額
+
     return 0;
 }
